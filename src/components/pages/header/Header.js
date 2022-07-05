@@ -16,17 +16,17 @@ const Header = () => {
     <div className='navbar-fixed-top' id="navbar_top" >
       <Navbar bg="dark" expand="lg" variant='dark'>
         <Container>
-          <Navbar.Brand onClick={()=>navigate('/')} className='d-flex justify-content-end'><SiKasasmart className='fs-2' /><h2 className='m-0 p-0'>Mart</h2></Navbar.Brand>
+          <Navbar.Brand onClick={()=>navigate('/')} className='d-flex cursor-pointer justify-content-end'><SiKasasmart className='fs-2' /><h2 className='m-0 p-0'>Mart</h2></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className="mx-auto text-start w-100 d-flex align-items-center d-grid gap-3">
               
               {/* category  */}
               <NavDropdown title="Category" id="basic-nav-dropdown">
-                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0'>Jewelery</Button></NavDropdown.Item>
-                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0'>Electronics</Button></NavDropdown.Item>
-                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0'>For Men's</Button></NavDropdown.Item>
-                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0'>For Women's</Button></NavDropdown.Item>
+                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0' onClick={()=>navigate("/shop/jewelery")}>Jewelery</Button></NavDropdown.Item>
+                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0' onClick={()=>navigate("/shop/electronics")}>Electronics</Button></NavDropdown.Item>
+                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0' onClick={()=>navigate("/shop/men's%20clothing")}>For Men's</Button></NavDropdown.Item>
+                <NavDropdown.Item><Button className='bg-transparent text-dark border-0 ps-0' onClick={()=>navigate("/shop/women's%20clothing")}>For Women's</Button></NavDropdown.Item>
                
               </NavDropdown>
 

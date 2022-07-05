@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Button, Row } from 'react-bootstrap'
-import SkeletonProduct from '../skeletons/SkeletonProduct';
-import { useDispatch } from 'react-redux';
-import {add} from '../store/cartSlice';
+import SkeletonProduct from '../../skeletons/SkeletonProduct';
+import { useDispatch, useSelector } from 'react-redux';
+import { add } from '../../store/cartSlice';
+import { fetchProducts, STATUSES } from '../../store/productSlice';
+
 
 import Product from './Product'
+
 const Products = () => {
     const dispatch = useDispatch();
-    const [data, setData] = useState([]);
+    const { data:data, status } = useSelector(state => state.product)
     const [filter, setFilter] = useState(data);
-    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
-        setLoading(true);
-        fetch(`https://fakestoreapi.com/products/`)
-            .then(res => res.json())
-            .then(data => {setData(data); setLoading(false); setFilter(data)})
-       
+        dispatch(fetchProducts())
+        // setLoading(true);
+        // fetch(`https://fakestoreapi.com/products/`)
+        //     .then(res => res.json())
+        //     .then(data => {setData(data); setLoading(false); setFilter(data)})
+        setFilter(data)
     }, []);
-  
-    
-    const handleCart=product=>{
+
+    console.log(filter)
+    const handleCart = product => {
         dispatch(add(product));
     }
 
@@ -30,7 +34,7 @@ const Products = () => {
         </div>
     ))
 
-    const products = filter.map(product => <Product product={product} handleCart={handleCart}/>)
+    const products = filter.map(product => <Product product={product} handleCart={handleCart} />)
     const filterProducts = category => {
         if (category === "") {
             setFilter(data)
@@ -40,6 +44,7 @@ const Products = () => {
             setFilter(updatedList)
         }
     }
+
     return (
         <div className='py-5'>
             <Container>
@@ -54,7 +59,7 @@ const Products = () => {
                     <Button variant="transparent category rounded-0 shadow-none" onClick={() => filterProducts("women's clothing")}>Women's</Button>
                 </div>
                 <Row>
-                    {loading ? skeleton : products}
+                    {products}
                 </Row>
             </Container>
         </div>

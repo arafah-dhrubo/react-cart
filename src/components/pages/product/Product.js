@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { TbArrowsCross } from 'react-icons/tb'
 import StarRatings from 'react-star-ratings';
-import SkeletonProduct from '../skeletons/SkeletonProduct';
+import SkeletonProduct from '../../skeletons/SkeletonProduct';
 const Product = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);

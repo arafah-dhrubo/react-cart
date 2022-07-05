@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { remove } from '../store/cartSlice';
+import { remove } from '../../store/cartSlice';
 import {useNavigate} from 'react-router-dom'
 import { IoTrashBinOutline } from 'react-icons/io5'
 

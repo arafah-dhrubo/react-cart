@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ba36e41-a35a-4d31-9817-a1843555dd40" name="Changes" comment="" />
+    <list default="true" id="0ba36e41-a35a-4d31-9817-a1843555dd40" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/pages/shop/AllProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cart/Cart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/featured/Product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/featured/Products.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Slider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product/Product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +38,8 @@
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -37,10 +51,22 @@
       <option name="presentableId" value="Default" />
       <updated>1656899757353</updated>
       <workItem from="1656899763066" duration="320000" />
+      <workItem from="1657007073690" duration="1723000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

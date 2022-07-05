@@ -60,3 +60,7 @@ input[type=number]:focus,
   border-radius: 50% !important;
   color: white;
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}

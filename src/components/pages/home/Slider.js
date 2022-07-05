@@ -8,8 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import Slide1 from '../slides/Slide1';
-import Slide2 from '../slides/Slide2';
+import Slide1 from '../../slides/Slide1';
+import Slide2 from '../../slides/Slide2';
 
 const Slider = () => {
     return (
