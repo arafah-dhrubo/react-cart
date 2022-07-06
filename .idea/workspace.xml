@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba36e41-a35a-4d31-9817-a1843555dd40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/pages/shop/AllProduct.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/utils/ProductModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/Cart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/featured/Product.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/featured/Products.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/Slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product/Product.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/featured/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/featured/Product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/featured/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/featured/Products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/product/Product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,17 +24,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +45,7 @@
       <updated>1656899757353</updated>
       <workItem from="1656899763066" duration="320000" />
       <workItem from="1657007073690" duration="1723000" />
+      <workItem from="1657070493678" duration="1613000" />
     </task>
     <servers />
   </component>

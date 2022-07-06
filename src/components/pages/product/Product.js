@@ -27,7 +27,6 @@ const Product = () => {
   
   const data = useSelector((state) => state?.cart?.cartItems);
 
- console.log(product)
   const addToCart = (product) => {
     dispatch(add(product));
   };
@@ -69,7 +68,7 @@ const Product = () => {
         </div>
       </div>
       <Row className="mt-5">
-        <Col md={6} sx={12}>
+        <Col md={6} xs={12}>
           <img
             src={product?.image}
             className=""
@@ -77,7 +76,7 @@ const Product = () => {
             alt={product?.title}
           />
         </Col>
-        <Col md={6} sx={12}>
+        <Col md={6} xs={12}>
           <h1 className="fw-light fs-2 text-start">{product?.title}</h1>
           <h1 className="text-start">${product?.price}</h1>
           <p className="text-start text-justify">{product?.description}</p>

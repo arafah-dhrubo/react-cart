@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add } from '../../store/cartSlice';
 import { fetchProducts, STATUSES } from '../../store/productSlice';
 
-
 import Product from './Product'
 
 const Products = () => {
@@ -34,7 +33,7 @@ const Products = () => {
         </div>
     ))
 
-    const products = filter.map(product => <Product key={product.id} product={product} handleCart={handleCart} />)
+    const products = filter.map(product => <Product key={product.id} product={product} handleCart={handleCart}/>)
     const filterProducts = category => {
         if (category === "") {
             setFilter(data)
@@ -47,6 +46,7 @@ const Products = () => {
 
     return (
         <div className='py-5'>
+
             <Container>
                 <h2 className='fw-semibold'>Featured Products</h2>
                 <div className='my-2 mb-5'>
