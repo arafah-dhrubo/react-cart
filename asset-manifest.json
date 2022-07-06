@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-cart/static/css/main.cef13426.css",
+    "main.js": "/react-cart/static/js/main.d6c4be8a.js",
+    "static/js/787.e7d37915.chunk.js": "/react-cart/static/js/787.e7d37915.chunk.js",
+    "static/media/iphone.png": "/react-cart/static/media/iphone.f09fd038465a365fe53b.png",
+    "static/media/watch.png": "/react-cart/static/media/watch.d2f7f6d8f490d885278a.png",
+    "static/media/logo.svg": "/react-cart/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-cart/index.html",
+    "main.cef13426.css.map": "/react-cart/static/css/main.cef13426.css.map",
+    "main.d6c4be8a.js.map": "/react-cart/static/js/main.d6c4be8a.js.map",
+    "787.e7d37915.chunk.js.map": "/react-cart/static/js/787.e7d37915.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cef13426.css",
+    "static/js/main.d6c4be8a.js"
+  ]
+}
