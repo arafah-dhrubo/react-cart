@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 
 const Header = () => {
-  const items = useSelector(state=>state.cart)
+  const items = useSelector(state=>state.cart.cartItems)
   const navigate = useNavigate();
 
   return (

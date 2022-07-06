@@ -23,7 +23,7 @@ const Products = () => {
         setFilter(data)
     }, []);
 
-    console.log(filter)
+
     const handleCart = product => {
         dispatch(add(product));
     }
@@ -34,7 +34,7 @@ const Products = () => {
         </div>
     ))
 
-    const products = filter.map(product => <Product product={product} handleCart={handleCart} />)
+    const products = filter.map(product => <Product key={product.id} product={product} handleCart={handleCart} />)
     const filterProducts = category => {
         if (category === "") {
             setFilter(data)

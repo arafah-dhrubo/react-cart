@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom'
 import { add } from '../../store/cartSlice';
-import { fetchProducts } from '../../store/productSlice';
+
 import Product from '../featured/Product';
 import { Row, Container, Button } from 'react-bootstrap';
 import { BsArrowLeft } from 'react-icons/bs';
@@ -13,16 +12,13 @@ const Shop = () => {
     const { data, status } = useSelector(state => state.product)
 
     const navigate = useNavigate()
-    useEffect(() => {
-        dispatch(fetchProducts())
-    })
 
     const filter = data.filter(product => product.category === category);
     const handleCart = product => {
         dispatch(add(product));
     }
 
-    const products = filter.map(product => <Product product={product} handleCart={handleCart} />);
+    const products = filter.map(product => <Product key={product.id} product={product} handleCart={handleCart} />);
     return (
         <div>
             <div className='bg-dark bg-gradient py-5'><h1 className='text-uppercase text-white'><BsArrowLeft className="cursor-pointer" onClick={() => navigate(-1)} /> {category}</h1></div>
