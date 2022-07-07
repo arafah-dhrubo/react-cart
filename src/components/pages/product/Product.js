@@ -5,18 +5,18 @@ import { useParams } from "react-router-dom";
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { TbArrowsCross } from "react-icons/tb";
 import StarRatings from "react-star-ratings";
-import SkeletonProduct from "../../skeletons/SkeletonProduct";
 import { useDispatch, useSelector } from "react-redux";
+import {addCompare} from "../../store/compareSlice";
 import { add, increase, decrease } from "../../store/cartSlice";
+
 
 import { useNavigate } from "react-router-dom";
 const Product = () => {
    const { id } = useParams();
     const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setLoading(true)
         fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res => res.json())
             .then(json => { setProduct(json); setLoading(false) })
@@ -29,6 +29,10 @@ const Product = () => {
 
   const addToCart = (product) => {
     dispatch(add(product));
+  };
+
+  const addToCompare = (product) => {
+    dispatch(addCompare(product));
   };
 
   const increaseItem = (product) => {
@@ -116,7 +120,7 @@ const Product = () => {
               <AiOutlineHeart /> Add to wishlist
             </Button>
             <p className="m-0 p-0">|</p>
-            <Button className="bg-transparent shadow-none border-0 text-dark">
+            <Button className="bg-transparent shadow-none border-0 text-dark" onClick={()=>addToCompare(product)}>
               <TbArrowsCross /> Compare
             </Button>
           </div>
@@ -141,7 +145,9 @@ const Product = () => {
     </div>
   );
 
-  return <Container>{false ? <SkeletonProduct /> : productDetail}</Container>;
+  return <Container>{loading ? <div class="spinner-border my-5" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div> : productDetail}</Container>;
 
   // return <div>Hi</div>;
 };

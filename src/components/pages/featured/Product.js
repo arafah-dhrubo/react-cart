@@ -5,12 +5,18 @@ import {TbArrowsCross} from 'react-icons/tb'
 import {AiOutlineEye} from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import ProductModal from "../../utils/ProductModal";
-
+import {useDispatch} from 'react-redux'
+import {addCompare} from '../../store/compareSlice'
 
 const Product = ({product, handleCart}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const dispatch = useDispatch();
+
+    const handleCompare=product=>{
+        dispatch(addCompare(product))
+    }
     return (
         <Col xs={6} md={2}>
             <ProductModal handleClose={handleClose} show={show} product={product}/>
@@ -23,7 +29,8 @@ const Product = ({product, handleCart}) => {
                                 onClick={handleShow}><AiOutlineEye className='fs-5'/></Button>
                         <Button className='p-2 mb-2 bg-transparent border-0 shadow-none'><AiOutlineHeart
                             className='fs-5'/></Button>
-                        <Button className='p-2 bg-transparent border-0 shadow-none'><TbArrowsCross
+                        <Button className='p-2 bg-transparent border-0 shadow-none'
+                        onClick={()=>handleCompare(product)}><TbArrowsCross
                             className='fs-5'/></Button>
                     </div>
                 </div>

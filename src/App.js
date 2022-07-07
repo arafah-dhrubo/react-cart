@@ -9,6 +9,7 @@ import Product from './components/pages/product/Product';
 import store from './components/store/store';
 import {Provider} from 'react-redux';
 import Cart from './components/pages/cart/Cart';
+import Compare from './components/pages/compare/Compare';
 import Shop from './components/pages/shop/Shop';
 import AllProduct from "./components/pages/shop/AllProduct";
 
@@ -22,6 +23,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/cart" element={<Cart/>}/>
+                        <Route path="/compare" element={<Compare/>}/>
                         <Route path="/product/:id" element={<Product/>}/>
                         <Route path="/shop/:category" element={<Shop/>}/>
                         <Route path="/shop/" element={<AllProduct/>}/>
