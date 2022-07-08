@@ -64,3 +64,12 @@ input[type=number]:focus,
 .cursor-pointer{
   cursor: pointer;
 }
+
+.z-10{
+  z-index:20
+}
+
+.scroll-y{
+  overflow-y: auto;
+  overflow-x: hidden;
+}

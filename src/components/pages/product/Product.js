@@ -43,7 +43,7 @@ const Product = () => {
     dispatch(decrease(product));
   };
 
-  const item = data?.filter((item) => item.id == id)[0];
+  const item = data?.filter((item) => item.id === id)[0];
 
   const productDetail = (
     <div className="py-5">

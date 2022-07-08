@@ -83,7 +83,7 @@ const Header = () => {
                   <Form.Control
                     className="me-auto border-0 focus-0"
                     placeholder="Add your item here..."
-                    onChange={(e) => console.log(e.target.value)}
+                    onChange={(e) => setQuery(e.target.value)}
                   />
                   <div className="bg-light h-100">
                     <Button className="bg-transparent border-0 shadow-none">
@@ -91,7 +91,7 @@ const Header = () => {
                     </Button>
                   </div>
                 </Stack>
-                <Search/>
+                <Search query={query}/>
               </div>
 
               {/* cart  */}

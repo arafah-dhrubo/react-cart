@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Container, Button, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../store/cartSlice";
-import { fetchProducts, STATUSES } from "../../store/productSlice";
+import { fetchProducts } from "../../store/productSlice";
 
 import Product from "./Product";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const { data: data, status } = useSelector((state) => state.product);
+  const { data, status } = useSelector((state) => state.product);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(true);
 
@@ -18,21 +18,13 @@ const Products = () => {
       setFilter(data);
       setLoading(false);
     }
-  }, [status]);
+  }, [data, dispatch, status]);
 
   const handleCart = (product) => {
     dispatch(add(product));
   };
 
-  const skeleton = [1, 2, 3, 4, 5, 6].map((loading) => (
-    <div className="col-2" key={loading}>
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  ));
-
-  const products = filter?.map((product) => (
+  const products = filter?.slice(0,6).map((product) => (
     <Product key={product.id} product={product} handleCart={handleCart} />
   ));
 
