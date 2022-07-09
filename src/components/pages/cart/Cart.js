@@ -48,7 +48,7 @@ const Cart = () => {
         </Button>
       </Col>
       <Col md={4} className="text-start border-0 d-flex">
-        <img src={item.image} style={{ width: "50px" }} />
+        <img src={item.image} style={{ width: "50px" }} alt={item.title}/>
         <Button
           onClick={() => navigate(`/product/${item.id}`)}
           className="shadow-none bg-transparent text-dark text-start border-0"

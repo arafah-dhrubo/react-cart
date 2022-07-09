@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const Search = ({ query }) => {
-  const { data, status } = useSelector((state) => state.product);
-  // const {visible, setVisible} = useState(false)
+  const { data} = useSelector((state) => state.product);
   const result = data.filter((item)=>
         item.title.toString().toLowerCase().indexOf(query.toLowerCase()) > -1
       );
@@ -24,7 +23,7 @@ const Search = ({ query }) => {
     </Row>
   ));
   return (
-    <div style={{"height":"264px"}} className={`${result.length===0 || result.length===data.length ? 'd-none':''} ${result.length>4 && "scroll-y"} position-absolute mt-3 bg-while shadow w-100 p-2 bg-white z-10`}>
+    <div style={{"maxHeight":"264px"}} className={`${result.length===0 || result.length===data.length ? 'd-none':''} ${result.length>4 && "scroll-y"} position-absolute mt-3 bg-while shadow w-100 p-2 bg-white z-10`}>
       {query===""?"":result.length>0?<div>{display}</div>:<p className="text-center p-0 m-0">Unmatched</p>}
     </div>
   );
