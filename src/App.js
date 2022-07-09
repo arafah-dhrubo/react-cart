@@ -12,7 +12,8 @@ import Cart from './components/pages/cart/Cart';
 import Compare from './components/pages/compare/Compare';
 import Shop from './components/pages/shop/Shop';
 import AllProduct from "./components/pages/shop/AllProduct";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
     return (
         <div className="App position-relative">
@@ -29,6 +30,7 @@ function App() {
                         <Route path="/shop/" element={<AllProduct/>}/>
                     </Routes>
                 </BrowserRouter>
+                <ToastContainer />
             </Provider>
         </div>
     );

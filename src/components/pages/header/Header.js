@@ -38,7 +38,8 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className="mx-auto text-start w-100 d-flex align-items-center d-grid gap-3">
               {/* category  */}
-              <NavDropdown title="Category" id="basic-nav-dropdown">
+              <NavDropdown title="Category" id="nav-dropdown-dark-example"
+                menuVariant="dark">
                 <NavDropdown.Item>
                   <Button
                     className="bg-transparent text-dark border-0 ps-0"
@@ -154,18 +155,15 @@ const Header = () => {
               {/* profile  */}
               <NavDropdown
                 title={<CgProfile className="fs-4 text-white" />}
-                id="basic-nav-dropdown"
+                id="nav-dropdown-dark-example"
+                menuVariant="dark"
               >
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
+                  Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                  Logout
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

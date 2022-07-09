@@ -23,7 +23,6 @@ const Search = ({ query }) => {
       </Col>
     </Row>
   ));
-  console.log(result.length)
   return (
     <div style={{"height":"264px"}} className={`${result.length===0 || result.length===data.length ? 'd-none':''} ${result.length>4 && "scroll-y"} position-absolute mt-3 bg-while shadow w-100 p-2 bg-white z-10`}>
       {query===""?"":result.length>0?<div>{display}</div>:<p className="text-center p-0 m-0">Unmatched</p>}

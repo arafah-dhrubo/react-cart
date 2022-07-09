@@ -15,7 +15,7 @@ const compareSlice = createSlice({
       const exist = state.compareItems.findIndex(
         (item) => item.id===action.payload.id
       );
-      console.log(exist);
+
       if (exist>=0) {
 
         toast.error("Already added in compare", {

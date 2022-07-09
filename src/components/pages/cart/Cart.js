@@ -1,16 +1,26 @@
-import React, {useState} from "react";
+import React, { useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { remove, increase, decrease, clear } from "../../store/cartSlice";
+import {
+  remove,
+  increase,
+  decrease,
+  clear,
+  getTotals,
+} from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { BsXLg, BsArrowLeft } from "react-icons/bs";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart.cartItems);
+  const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
 
   const handleRemove = (product) => {
     dispatch(remove(product));
@@ -23,12 +33,13 @@ const Cart = () => {
   const decreaseItem = (product) => {
     dispatch(decrease(product));
   };
+
   const products = data.map((item) => (
     <Row
       className="d-flex align-items-center border-bottom border-1"
       key={item.id}
     >
-      <Col md={2} className="border-0">
+      <Col md={1} className="border-0">
         <Button
           className="shadow-none bg-transparent text-dark border-0"
           onClick={() => handleRemove(item.id)}
@@ -46,13 +57,12 @@ const Cart = () => {
         </Button>
       </Col>
       <Col md={2} className="border-0">
-        ${parseInt(item.price)}
+        ${parseFloat(item.price)}
       </Col>
-      <Col md={2} className="border-0 d-flex">
-        <Button className="rounded-0 bg-transparent border-dark shadow-none">
+      <Col md={3} className="border-0 d-flex">
+        <Button className="rounded-0 bg-transparent border-dark shadow-none"  onClick={() => increaseItem(item)}>
           <AiOutlinePlus
             className=" text-dark fs-5"
-            onClick={() => increaseItem(item)}
           />
         </Button>
         <p
@@ -61,15 +71,14 @@ const Cart = () => {
         >
           {item.cartQuantity}
         </p>
-        <Button className="rounded-0 bg-transparent border-dark shadow-none">
+        <Button className="rounded-0 bg-transparent border-dark shadow-none" onClick={() => decreaseItem(item)}>
           <AiOutlineMinus
             className=" text-dark fs-5"
-            onClick={() => decreaseItem(item)}
           />
         </Button>
       </Col>
       <Col md={2} className="border-0">
-        ${parseInt(item.price) * parseInt(item.cartQuantity)}
+        ${parseFloat(item.price) * parseFloat(item.cartQuantity)}
       </Col>
     </Row>
   ));
@@ -116,19 +125,28 @@ const Cart = () => {
                 <Table>
                   <thead>
                     <Row>
-                      <Col md={2}>Remove</Col>
+                      <Col md={1}></Col>
                       <Col md={4}>Product</Col>
                       <Col md={2}>Price</Col>
-                      <Col md={2}>Quantity</Col>
+                      <Col md={3}>Quantity</Col>
                       <Col md={2}>Subtotal</Col>
                     </Row>
                   </thead>
                   <tbody>{products}</tbody>
                 </Table>{" "}
               </Col>
-              <Col xs={12} md={4}>
-                <h3>Cart total</h3>
-                <p>{total}</p>
+              <Col xs={12} md={4} className="position-relative">
+               <div className="border border-3 p-2 position-absolute w-100">
+               <h3 className="mb-3">Cart total</h3>
+                <p className="text-start">Total Item: {cart.cartTotalQuantity}</p>
+                <p className="text-start">Total Amount: ${cart.cartTotalAmount}</p>
+                <Button
+                className="shadow-none border-0 bg-dark rounded-0 w-100"
+                onClick={() => navigate('/checkout')}
+              >
+                Checkout
+              </Button>
+               </div>
               </Col>
             </Row>
           </div>

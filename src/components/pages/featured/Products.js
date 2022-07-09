@@ -18,7 +18,7 @@ const Products = () => {
       setFilter(data);
       setLoading(false);
     }
-  }, [data, dispatch, status]);
+  });
 
   const handleCart = (product) => {
     dispatch(add(product));
