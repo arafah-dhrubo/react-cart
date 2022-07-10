@@ -42,7 +42,7 @@ const Header = () => {
                 menuVariant="dark">
                 <NavDropdown.Item>
                   <Button
-                    className="bg-transparent text-dark border-0 ps-0"
+                    className="bg-transparent text-white border-0 ps-0"
                     onClick={() => navigate("/shop/jewelery")}
                   >
                     Jewelery
@@ -50,7 +50,7 @@ const Header = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Button
-                    className="bg-transparent text-dark border-0 ps-0"
+                    className="bg-transparent text-white border-0 ps-0"
                     onClick={() => navigate("/shop/electronics")}
                   >
                     Electronics
@@ -58,7 +58,7 @@ const Header = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Button
-                    className="bg-transparent text-dark border-0 ps-0"
+                    className="bg-transparent text-white border-0 ps-0"
                     onClick={() => navigate("/shop/men's%20clothing")}
                   >
                     For Men's
@@ -66,7 +66,7 @@ const Header = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Button
-                    className="bg-transparent text-dark border-0 ps-0"
+                    className="bg-transparent text-white border-0 ps-0"
                     onClick={() => navigate("/shop/women's%20clothing")}
                   >
                     For Women's

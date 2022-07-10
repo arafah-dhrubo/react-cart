@@ -1,16 +1,12 @@
+
 import React, { useEffect } from "react";
-import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Row, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  remove,
-  increase,
-  decrease,
-  clear,
   getTotals,
 } from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
-import { BsXLg, BsArrowLeft } from "react-icons/bs";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { BsArrowLeft } from "react-icons/bs";
 
 const Checkout = () => {
   const data = useSelector((state) => state.cart.cartItems);
@@ -22,60 +18,22 @@ const Checkout = () => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
-  const handleRemove = (product) => {
-    dispatch(remove(product));
-  };
-
-  const increaseItem = (product) => {
-    dispatch(increase(product));
-  };
-
-  const decreaseItem = (product) => {
-    dispatch(decrease(product));
-  };
-
-  const products = data?.map((item) => (
+  const products = data.map((item) => (
     <Row
-      className="d-flex align-items-center border-bottom border-1"
-      key={item?.id}
+      className="d-flex align-items-center border-bottom border-1 p-2"
+      key={item.id}
     >
-      <Col md={1} className="border-0">
+      <Col md={8} className="text-start border-0 d-flex">
+        <img src={item.image} style={{ width: "50px" }} alt={item.title} />
         <Button
-          className="shadow-none bg-transparent text-dark border-0"
-          onClick={() => handleRemove(item?.id)}
-        >
-          <BsXLg />
-        </Button>
-      </Col>
-      <Col md={4} className="text-start border-0 d-flex">
-        <img src={item?.image} style={{ width: "50px" }} />
-        <Button
-          onClick={() => navigate(`/product/${item?.id}`)}
+          onClick={() => navigate(`/product/${item.id}`)}
           className="shadow-none bg-transparent text-dark text-start border-0"
         >
-          {item?.title?.slice(0, 25)}...
+          {item.title.slice(0, 45)}...
         </Button>
       </Col>
       <Col md={2} className="border-0">
-        ${parseFloat(item.price)}
-      </Col>
-      <Col md={3} className="border-0 d-flex">
-        <Button className="rounded-0 bg-transparent border-dark shadow-none"  onClick={() => increaseItem(item)}>
-          <AiOutlinePlus
-            className=" text-dark fs-5"
-          />
-        </Button>
-        <p
-          className="p-1 m-0 border border-dark rounded-0 fs-5"
-          style={{ height: "40px", width: "40px" }}
-        >
-          {item.cartQuantity}
-        </p>
-        <Button className="rounded-0 bg-transparent border-dark shadow-none" onClick={() => decreaseItem(item)}>
-          <AiOutlineMinus
-            className=" text-dark fs-5"
-          />
-        </Button>
+        X{parseFloat(item.cartQuantity)}
       </Col>
       <Col md={2} className="border-0">
         ${parseFloat(item.price) * parseFloat(item.cartQuantity)}
@@ -110,43 +68,95 @@ const Checkout = () => {
                   className="shadow-none border-0 bg-transparent text-dark"
                   onClick={() => navigate("/cart")}
                 >
-                  cart
+                  checkout
                 </Button>
               </div>
-              <Button
-                className="shadow-none border-0 bg-dark rounded-0"
-                onClick={() => dispatch(clear())}
-              >
-                Clear
-              </Button>
+              
             </div>
             <Row>
               <Col xs={12} md={8}>
-                <Table>
-                  <thead>
-                    <Row>
-                      <Col md={1}></Col>
-                      <Col md={4}>Product</Col>
-                      <Col md={2}>Price</Col>
-                      <Col md={3}>Quantity</Col>
-                      <Col md={2}>Subtotal</Col>
-                    </Row>
-                  </thead>
-                  <tbody>{products}</tbody>
-                </Table>{" "}
+                <Form>
+                  <Row>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                          First name
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="First Name" />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                          Last name
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Last Name" />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                          Username
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Username" />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                        Email Address
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Email Address" />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                          Phone no
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Username" />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="text-start w-100">
+                        Tel (Optional)
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Email Address" />
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
               </Col>
               <Col xs={12} md={4} className="position-relative">
-               <div className="border border-3 p-2 position-absolute w-100">
-               <h3 className="mb-3">Cart total</h3>
-                <p className="text-start">Total Item: {cart.cartTotalQuantity}</p>
-                <p className="text-start">Total Amount: ${cart.cartTotalAmount}</p>
-                <Button
-                className="shadow-none border-0 bg-dark rounded-0 w-100"
-                onClick={() => navigate('/checkout')}
-              >
-                Checkout
-              </Button>
-               </div>
+                <h3 className="mb-3 text-start">Your Cart</h3>
+                <div className="border border-3 p-2 position-absolute w-100">
+                  {products}
+                  <div className="d-flex justify-content-between">
+                    <p>Total Item:</p> <p>X{cart.cartTotalQuantity}</p>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <p>Total Amount:</p>
+                    <p>${cart.cartTotalAmount}</p>{" "}
+                  </div>
+                  <Button
+                    className="shadow-none border-0 bg-dark rounded-0 w-100"
+                    onClick={() => navigate("/checkout")}
+                  >
+                    Checkout
+                  </Button>
+                </div>
               </Col>
             </Row>
           </div>

@@ -34,26 +34,26 @@ const Cart = () => {
     dispatch(decrease(product));
   };
 
-  const products = data.map((item) => (
+  const products = data?.map((item) => (
     <Row
       className="d-flex align-items-center border-bottom border-1"
-      key={item.id}
+      key={item?.id}
     >
       <Col md={1} className="border-0">
         <Button
           className="shadow-none bg-transparent text-dark border-0"
-          onClick={() => handleRemove(item.id)}
+          onClick={() => handleRemove(item?.id)}
         >
           <BsXLg />
         </Button>
       </Col>
       <Col md={4} className="text-start border-0 d-flex">
-        <img src={item.image} style={{ width: "50px" }} alt={item.title}/>
+        <img src={item?.image} style={{ width: "50px" }} alt={item?.title}/>
         <Button
-          onClick={() => navigate(`/product/${item.id}`)}
+          onClick={() => navigate(`/product/${item?.id}`)}
           className="shadow-none bg-transparent text-dark text-start border-0"
         >
-          {item.title.slice(0, 25)}...
+          {item?.title?.slice(0, 25)}...
         </Button>
       </Col>
       <Col md={2} className="border-0">
