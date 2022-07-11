@@ -2,12 +2,10 @@ import React from "react";
 import {Modal, Button, Row, Col} from "react-bootstrap";
 import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai";
 import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
 import {add, decrease, increase} from "../store/cartSlice";
 
 const ProductModal = ({handleClose, show, product}) => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const data = useSelector((state) => state?.cart?.cartItems);
 

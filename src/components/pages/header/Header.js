@@ -15,7 +15,7 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TbArrowsCross } from "react-icons/tb";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Search from "../search/Search";
 const Header = () => {
   const items = useSelector((state) => state.cart.cartItems);
@@ -38,8 +38,11 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav ">
             <Nav className="mx-auto text-start w-100 d-flex align-items-center d-grid gap-3">
               {/* category  */}
-              <NavDropdown title="Category" id="nav-dropdown-dark-example"
-                menuVariant="dark">
+              <NavDropdown
+                title="Category"
+                id="nav-dropdown-dark-example"
+                menuVariant="dark"
+              >
                 <NavDropdown.Item>
                   <Button
                     className="bg-transparent text-white border-0 ps-0"
@@ -92,7 +95,7 @@ const Header = () => {
                     </Button>
                   </div>
                 </Stack>
-                <Search query={query}/>
+                <Search query={query} />
               </div>
 
               {/* cart  */}
@@ -158,12 +161,35 @@ const Header = () => {
                 id="nav-dropdown-dark-example"
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="#action/3.2">
-                  Profile
+                <NavDropdown.Item>
+                  <Link
+                    to="/profile"
+                    className="text-decoration-none text-white"
+                  >
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/login" className="text-decoration-none text-white">
+                    Login
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link
+                    to="/register"
+                    className="text-decoration-none text-white"
+                  >
+                    Register
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Logout
+                <NavDropdown.Item to="logout">
+                  <Link
+                    to="/logout"
+                    className="text-decoration-none text-white"
+                  >
+                    Logout
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

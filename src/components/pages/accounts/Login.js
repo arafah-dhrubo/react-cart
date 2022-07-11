@@ -1,9 +1,15 @@
-import React from 'react'
-
+import React from "react";
+import {Container, Form} from "react-bootstrap";
 const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div className="bg-light">
+      <Container>
+        <Form>
+          <label htmlFor="username"></label>
+        </Form>
+      </Container>
+    </div>
+  );
+};
 
-export default Login
+export default Login;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import InnerImageZoom from 'react-inner-image-zoom';
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
@@ -75,11 +75,12 @@ const Product = () => {
       </div>
       <Row className="mt-5">
         <Col md={6} xs={12}>
-          <img
+          <InnerImageZoom
             src={product?.image}
             className=""
             style={{ height: "300px" }}
             alt={product?.title}
+            zoomSrc={product?.image}
           />
         </Col>
         <Col md={6} xs={12}>

@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/pages/header/Header';
-import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/pages/home/Home';
 import NotFound from './components/pages/notFound/NotFound';
 import ScrollToTop from 'react-scroll-to-top';
@@ -12,6 +12,8 @@ import Cart from './components/pages/cart/Cart';
 import Compare from './components/pages/compare/Compare';
 import Checkout from './components/pages/checkout/Checkout';
 import Shop from './components/pages/shop/Shop';
+import Login from './components/pages/accounts/Login';
+import Register from './components/pages/accounts/Register';
 import AllProduct from "./components/pages/shop/AllProduct";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,6 +32,8 @@ function App() {
                         <Route path="/product/:id" element={<Product/>}/>
                         <Route path="/shop/:category" element={<Shop/>}/>
                         <Route path="/shop/" element={<AllProduct/>}/>
+                        <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
                         <Route path="*" element={<NotFound/>}/>
                       
                     </Routes>
