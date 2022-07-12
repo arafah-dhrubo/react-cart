@@ -5,11 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import store from './components/store/store';
+import {Provider} from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
   <React.Fragment>
     <App />
   </React.Fragment>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

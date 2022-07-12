@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useEffect} from "react";
 import Header from './components/pages/header/Header';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './components/pages/home/Home';
@@ -6,8 +7,7 @@ import NotFound from './components/pages/notFound/NotFound';
 import ScrollToTop from 'react-scroll-to-top';
 import {AiOutlineArrowUp} from 'react-icons/ai'
 import Product from './components/pages/product/Product';
-import store from './components/store/store';
-import {Provider} from 'react-redux';
+
 import Cart from './components/pages/cart/Cart';
 import Compare from './components/pages/compare/Compare';
 import Checkout from './components/pages/checkout/Checkout';
@@ -15,12 +15,18 @@ import Shop from './components/pages/shop/Shop';
 import Login from './components/pages/accounts/Login';
 import Register from './components/pages/accounts/Register';
 import AllProduct from "./components/pages/shop/AllProduct";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { fetchProducts } from "../src/components/store/productSlice";
 function App() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(fetchProducts());
+    });
     return (
         <div className="App position-relative">
-            <Provider store={store}>
+           
                 <BrowserRouter>
                     <Header/>
                     <ScrollToTop smooth component={<AiOutlineArrowUp className='fs-4'/>}/>
@@ -39,7 +45,7 @@ function App() {
                     </Routes>
                 </BrowserRouter>
                 <ToastContainer />
-            </Provider>
+         
         </div>
     );
 }

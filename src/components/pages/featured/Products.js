@@ -8,17 +8,9 @@ import Product from "./Product";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.product);
-  const [filter, setFilter] = useState(data);
+  var { data, status } = useSelector((state) => state.product);
+  var [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-    if (status === "idle") {
-      setFilter(data);
-      setLoading(false);
-    }
-  });
 
   const handleCart = (product) => {
     dispatch(add(product));
@@ -76,7 +68,7 @@ const Products = () => {
           </Button>
         </div>
         <Row>
-          {loading ? (
+          {false ? (
             <div class="spinner-border mx-auto" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
