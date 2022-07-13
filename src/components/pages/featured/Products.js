@@ -10,7 +10,7 @@ const Products = () => {
   const dispatch = useDispatch();
   var { data, status } = useSelector((state) => state.product);
   var [filter, setFilter] = useState(data);
-  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState("all");
 
   const handleCart = (product) => {
     dispatch(add(product));
@@ -23,24 +23,28 @@ const Products = () => {
   const filterProducts = (category) => {
     if (category === "") {
       setFilter(data);
+      setCategory("all");
     } else {
       const updatedList = data?.filter((item) => item.category === category);
       setFilter(updatedList);
+      setCategory(category);
     }
   };
 
   return (
-    <div className="py-5">
+    <div className="py-5 bg-light">
       <Container>
         <h2 className="fw-semibold">Featured Products</h2>
         <div className="my-2 mb-5">
           <Button
+            className={`${category==="all"?`border-0 border-bottom border-dark`:``}`}
             variant="transparent category rounded-0 shadow-none"
             onClick={() => filterProducts("")}
           >
             All
           </Button>
           <Button
+          className={`${category==="electronics"?`border-0 border-bottom border-dark`:``}`}
             variant="transparent category rounded-0 shadow-none"
             onClick={() => {
               filterProducts("electronics");
@@ -49,18 +53,21 @@ const Products = () => {
             Electronics
           </Button>
           <Button
+          className={`${category==="jewelery"?`border-0 border-bottom border-dark`:``}`}
             variant="transparent category rounded-0 shadow-none"
             onClick={() => filterProducts("jewelery")}
           >
             Jewelery
           </Button>
           <Button
+          className={`${category==="men's clothing"?`border-0 border-bottom border-dark`:``}`}
             variant="transparent category rounded-0 shadow-none"
             onClick={() => filterProducts("men's clothing")}
           >
             Men's
           </Button>
           <Button
+          className={`${category==="women's clothing"?`border-0 border-bottom border-dark`:``}`}
             variant="transparent category rounded-0 shadow-none"
             onClick={() => filterProducts("women's clothing")}
           >
