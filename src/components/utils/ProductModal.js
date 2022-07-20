@@ -67,7 +67,8 @@ const ProductModal = ({handleClose, show, product}) => {
                         ) : (
                             <div className="w-100 text-start">
                                 <Button
-                                    className="rounded-0 bg-dark border-0 shadow-none"
+                                style={{backgroundColor:"black", borderRadius:"15px"}}
+                                    className="px-3 py-3 bg-dark border-0 shadow-none"
                                     onClick={() => addToCart(product)}
                                 >
                                     Add To Cart

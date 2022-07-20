@@ -48,7 +48,7 @@ const Cart = () => {
         </Button>
       </Col>
       <Col md={4} className="text-start border-0 d-flex">
-        <img src={item?.image} style={{ width: "50px" }} alt={item?.title}/>
+        <img src={item?.image} style={{ width: "50px" }} alt={item?.title} />
         <Button
           onClick={() => navigate(`/product/${item?.id}`)}
           className="shadow-none bg-transparent text-dark text-start border-0"
@@ -60,10 +60,11 @@ const Cart = () => {
         ${parseFloat(item.price)}
       </Col>
       <Col md={3} className="border-0 d-flex">
-        <Button className="rounded-0 bg-transparent border-dark shadow-none"  onClick={() => increaseItem(item)}>
-          <AiOutlinePlus
-            className=" text-dark fs-5"
-          />
+        <Button
+          className="rounded-0 bg-transparent border-dark shadow-none"
+          onClick={() => increaseItem(item)}
+        >
+          <AiOutlinePlus className=" text-dark fs-5" />
         </Button>
         <p
           className="p-1 m-0 border border-dark rounded-0 fs-5"
@@ -71,10 +72,11 @@ const Cart = () => {
         >
           {item.cartQuantity}
         </p>
-        <Button className="rounded-0 bg-transparent border-dark shadow-none" onClick={() => decreaseItem(item)}>
-          <AiOutlineMinus
-            className=" text-dark fs-5"
-          />
+        <Button
+          className="rounded-0 bg-transparent border-dark shadow-none"
+          onClick={() => decreaseItem(item)}
+        >
+          <AiOutlineMinus className=" text-dark fs-5" />
         </Button>
       </Col>
       <Col md={2} className="border-0">
@@ -114,7 +116,8 @@ const Cart = () => {
                 </Button>
               </div>
               <Button
-                className="shadow-none border-0 bg-dark rounded-0"
+                style={{ borderRadius: "15px" }}
+                className="shadow-none border-0 bg-dark px-3 py-2"
                 onClick={() => dispatch(clear())}
               >
                 Clear
@@ -136,17 +139,25 @@ const Cart = () => {
                 </Table>{" "}
               </Col>
               <Col xs={12} md={4} className="position-relative">
-               <div className="border border-3 p-2 position-absolute w-100">
-               <h3 className="mb-3">Cart total</h3>
-                <p className="text-start">Total Item: {cart.cartTotalQuantity}</p>
-                <p className="text-start">Total Amount: ${cart.cartTotalAmount}</p>
-                <Button
-                className="shadow-none border-0 bg-dark rounded-0 w-100"
-                onClick={() => navigate('/checkout')}
-              >
-                Checkout
-              </Button>
-               </div>
+                <div
+                  className="border border-3 p-2 position-absolute w-100"
+                  style={{ borderRadius: "15px" }}
+                >
+                  <h3 className="mb-3">Cart total</h3>
+                  <p className="text-start">
+                    Total Item: {cart.cartTotalQuantity}
+                  </p>
+                  <p className="text-start">
+                    Total Amount: ${cart.cartTotalAmount}
+                  </p>
+                  <Button
+                    style={{ borderRadius: "15px" }}
+                    className="shadow-none border-0 bg-dark p-3 w-100"
+                    onClick={() => navigate("/checkout")}
+                  >
+                    Checkout
+                  </Button>
+                </div>
               </Col>
             </Row>
           </div>

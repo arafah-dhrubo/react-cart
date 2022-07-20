@@ -1,27 +1,26 @@
 import React from "react";
-import img from "../../assets/slider/watch.png";
+import img from "../../assets/slider/ssd.webp";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { BsApple } from "react-icons/bs";
+import { SiSamsung } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
 const Slide2 = () => {
+  const navigate=useNavigate();
   return (
-    <div className="bg-dark bg-gradient">
-      <Container className="my-auto d-flex align-items-center apple">
-        <Row>
-          <Col md={6} sm={12} className="p-5 my-auto">
+      <Container>
+        <Row className="d-flex align-items-center apple"style={{"backgroundColor":"black", "borderRadius":"15px"}}>
+          <Col md={6} sm={12} className="p-5 my-auto h-100 ">
             <div className="w-full text-start">
-              <BsApple className="text-start fs-2 text-white" />
-
-              <h4 className="text-start text-white mt-4">Track your fitness</h4>
+              <SiSamsung className="text-start text-white" style={{fontSize:"100px"}}/>
+              <h1 className="text-start text-white ">Unreal Performance</h1>
               <h1 className="text-start text-white large-text">
-                Apple Watch Series 7
+              Samsung SSD
               </h1>
-              <Button className="rounded-0 bg-transparent border-2 border-white mt-2">
+              <Button className="rounded-pill bg-transparent border-2 border-white mt-2 btn-lg"  onClick={()=>navigate('/product/11')}>
                 Shop Now
               </Button>
             </div>
           </Col>
           <Col md={6} sm={12}>
-            <div className="bg-white rounded-circle p-1 m-5">
               {img ? (
                 <img src={img} alt="iphone" className="w-100" />
               ) : (
@@ -29,11 +28,11 @@ const Slide2 = () => {
                   <span class="visually-hidden">Loading...</span>
                 </div>
               )}
-            </div>
+      
           </Col>
         </Row>
       </Container>
-    </div>
+
   );
 };
 

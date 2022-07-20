@@ -29,7 +29,7 @@ const Category = () => {
             xs={6}
             md={3}
             className="cursor-pointer d-flex  px-5  align-items-center"
-            onClick={() => navigate("/shop/electronics")}
+            onClick={() => navigate("/shop/jewelery")}
           >
             <div
               className="p-2 mx-auto bg-light rounded-circle mb-2 pt-3"
@@ -43,7 +43,7 @@ const Category = () => {
             xs={6}
             md={3}
             className="cursor-pointer d-flex  px-5  align-items-center"
-            onClick={() => navigate("/shop/electronics")}
+            onClick={() => navigate("/shop/men's%20clothing")}
           >
             <div
               className="p-2 mx-auto bg-light rounded-circle mb-2 pt-3"
@@ -57,7 +57,7 @@ const Category = () => {
             xs={6}
             md={3}
             className="cursor-pointer d-flex  px-5  align-items-center"
-            onClick={() => navigate("/shop/electronics")}
+            onClick={() => navigate("/shop/women's%20clothing")}
           >
             <div
               className="p-2 mx-auto bg-light rounded-circle mb-2 pt-3"

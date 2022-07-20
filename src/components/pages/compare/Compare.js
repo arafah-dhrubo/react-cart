@@ -42,7 +42,7 @@ const Compare = () => {
                 </Button>
               </div>
               <Button
-                className="shadow-none border-0 bg-dark rounded-0"
+            style={{borderRadius:"15px"}}    className="shadow-none border-0 bg-dark px-3 py-2"
                 onClick={() => dispatch(clear())}
               >
                 Clear

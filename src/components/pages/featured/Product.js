@@ -18,12 +18,12 @@ const Product = ({ product, handleCart }) => {
     dispatch(addCompare(product));
   };
   return (
-    <Col xs={6} md={2} className="">
+    <Col xs={6} md={3}>
       <ProductModal handleClose={handleClose} show={show} product={product} />
       <Card className="product border-0 bg-light bg-transparent">
         <div
           className="p-3 bg-white"
-          style={{ width: "auto", height: "175px" }}
+          style={{ width: "auto", height: "275px", borderRadius:"15px" }}
         >
           <Card.Img
             variant="top"
@@ -31,7 +31,7 @@ const Product = ({ product, handleCart }) => {
             style={{ height: "100%" }}
           />
           <div
-            style={{ width: "40px", height: "42%" }}
+            style={{ width: "40px", height: "140px", margin:"55px 0" }}
             className="position-absolute top-0 bg-secondary product-button"
           >
             <Button
@@ -61,9 +61,10 @@ const Product = ({ product, handleCart }) => {
             </Link>
           </Card.Title>
           <Card.Text className="text-secondary">${product.price}</Card.Text>
-          <div className="bg-dark position-absoulte cart-button">
+          <div className="bg-dark position-absoulte cart-button" style={{borderRadius:"15px"}}>
             <Button
-              className="shadow-none bg-transparent border-0"
+            style={{backgroundColor:"black", borderRadius:"15px"}}
+              className="shadow-none border-0 bg-transparent px-4 py-3"
               onClick={() => handleCart(product)}
             >
               Add To Cart

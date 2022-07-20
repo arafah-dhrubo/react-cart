@@ -10,6 +10,7 @@ import { addCompare } from "../../store/compareSlice";
 import { add, increase, decrease } from "../../store/cartSlice";
 
 import { useNavigate } from "react-router-dom";
+import ProductTab from "./ProductTab";
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -28,22 +29,6 @@ const Product = () => {
   const navigate = useNavigate();
 
   const data = useSelector((state) => state?.cart?.cartItems);
-
-  const addToCart = (product) => {
-    dispatch(add(product));
-  };
-
-  const addToCompare = (product) => {
-    dispatch(addCompare(product));
-  };
-
-  const increaseItem = (product) => {
-    dispatch(increase(product));
-  };
-
-  const decreaseItem = (product) => {
-    dispatch(decrease(product));
-  };
 
   const item = data?.find((item) => item.id == id);
 
@@ -78,7 +63,6 @@ const Product = () => {
           <InnerImageZoom
             src={product?.image}
             className=""
-            style={{ height: "300px" }}
             alt={product?.title}
             zoomSrc={product?.image}
           />
@@ -86,12 +70,12 @@ const Product = () => {
         <Col md={6} xs={12}>
           <h1 className="fw-light fs-2 text-start">{product?.title}</h1>
           <h1 className="text-start">${product?.price}</h1>
-          <p className="text-start text-justify">{product?.description}</p>
+          <p className="text-start text-justify">{product?.description?.slice(0,150)}.</p>
           {item ? (
             <div className="d-flex">
               <Button
                 className="rounded-0 bg-transparent border-dark shadow-none"
-                onClick={() => increaseItem(product)}
+                onClick={() => dispatch(increase(product))}
               >
                 <AiOutlinePlus className=" text-dark fs-5" />
               </Button>
@@ -103,7 +87,7 @@ const Product = () => {
               </p>
               <Button
                 className="rounded-0 bg-transparent border-dark shadow-none"
-                onClick={() => decreaseItem(product)}
+                onClick={() =>  dispatch(decrease(product))}
               >
                 <AiOutlineMinus className=" text-dark fs-5" />
               </Button>
@@ -111,8 +95,9 @@ const Product = () => {
           ) : (
             <div className="w-100 text-start">
               <Button
-                className="rounded-0 bg-dark border-0 shadow-none"
-                onClick={() => addToCart(product)}
+                style={{backgroundColor:"black", borderRadius:"15px"}}
+                className="px-4 py-3 bg-dark border-0 shadow-none"
+                onClick={() => dispatch(add(product))}
               >
                 Add To Cart
               </Button>
@@ -125,7 +110,7 @@ const Product = () => {
             <p className="m-0 p-0">|</p>
             <Button
               className="bg-transparent shadow-none border-0 text-dark"
-              onClick={() => addToCompare(product)}
+              onClick={() => dispatch(addCompare(product))}
             >
               <TbArrowsCross /> Compare
             </Button>
@@ -148,6 +133,7 @@ const Product = () => {
           </div>
         </Col>
       </Row>
+      <ProductTab description={product?.description}/>
     </div>
   );
 

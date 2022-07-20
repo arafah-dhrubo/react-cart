@@ -27,7 +27,12 @@ input[type=number]:focus,
 
 .apple{
   font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
-  height: 100vh;
+}
+
+.img-bg{
+  width: 400px;
+  height: 400px;
+  margin: auto;
 }
 
 .large-text{
@@ -72,4 +77,22 @@ input[type=number]:focus,
 .scroll-y{
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.iiz{
+  padding: 50px;
+
+}
+
+.iiz img{
+  width: 300px;
+}
+.nav-link.active{
+  color: black !important;
+  font-weight: 600;
+  border-bottom: 1px solid gray !important;
+}
+.nav-link{
+  color: gray !important;
+  border: none !important;
 }
