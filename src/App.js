@@ -20,6 +20,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchProducts } from "../src/components/store/productSlice";
 import Footer from "./components/pages/footer/Footer";
+import { AnimatePresence } from "framer-motion";
+import Wishlist from "./components/pages/wishlist/Wishlist";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,6 +29,7 @@ function App() {
   }, [dispatch]);
   return (
     <div className="App position-relative">
+      <AnimatePresence exitBeforeEnter>
       <BrowserRouter>
         <Header />
         <ScrollToTop smooth component={<AiOutlineArrowUp className="fs-4" />} />
@@ -35,6 +38,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/shop/:category" element={<Shop />} />
           <Route path="/shop/" element={<AllProduct />} />
@@ -45,6 +49,7 @@ function App() {
         <Footer />
       </BrowserRouter>
       <ToastContainer />
+      </AnimatePresence>
     </div>
   );
 }

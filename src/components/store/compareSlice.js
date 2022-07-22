@@ -18,7 +18,7 @@ const compareSlice = createSlice({
 
       if (exist>=0) {
 
-        toast.error("Already added in compare", {
+        toast.warning("Already added in compare", {
           position: "bottom-left",
         });
       } else {

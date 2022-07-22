@@ -87,7 +87,7 @@ const Cart = () => {
 
   return (
     <div>
-      <div className="bg-dark bg-gradient py-5 mb-5">
+      <div className="bg-dark bg-gradient py-5">
         <h1 className="text-uppercase text-white">
           <BsArrowLeft
             className="cursor-pointer"
@@ -98,7 +98,7 @@ const Cart = () => {
       </div>
       <Container>
         {data.length > 0 ? (
-          <div>
+          <div className="my-5">
             <div className="d-flex justify-content-between mb-5">
               <div className="d-flex align-items-center">
                 <Button
@@ -162,7 +162,7 @@ const Cart = () => {
             </Row>
           </div>
         ) : (
-          <div>
+          <div className="my-5">
             <h3>Empty Cart</h3>
             <Button
               className="shadow-none border-0 bg-dark rounded-0 mt-2"

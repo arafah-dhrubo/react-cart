@@ -31,7 +31,7 @@ const Shop = () => {
                            <Button className="shadow-none border-0 bg-transparent text-dark" onClick={()=>navigate(`/shop/${category}`)}>{category}</Button>
                        </div>
                    </div>
-                    <Row>
+                    <Row className='g-5 d-flex'>
                         {products}
                     </Row>
                 </Container>

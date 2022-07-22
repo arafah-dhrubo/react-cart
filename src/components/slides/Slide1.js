@@ -7,7 +7,7 @@ const Slide1 = () => {
   const navigate=useNavigate();
   return (
       <Container>
-        <Row className="d-flex align-items-center apple"style={{"backgroundColor":"black", "borderRadius":"15px"}}>
+        <Row className="d-flex py-5 align-items-center apple"style={{"backgroundColor":"black", "borderRadius":"15px"}}>
           <Col md={6} sm={12} className="p-5 my-auto h-100 ">
             <div className="w-full text-start">
               <SiSamsung className="text-start text-white" style={{fontSize:"100px"}}/>

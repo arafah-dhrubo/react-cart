@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { add } from "../../store/cartSlice";
-import { fetchProducts } from "../../store/productSlice";
 import Product from "../featured/Product";
 import { Row, Container, Button } from "react-bootstrap";
 import { BsArrowLeft } from "react-icons/bs";
+import { removeWishlist } from "../../store/wishlistSlice";
 
-const AllProduct = () => {
+const Wishlist = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.product);
+  const data = useSelector((state) => state.wishlist.wishlistItems);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  });
 
   const handleCart = (product) => {
     dispatch(add(product));
   };
 
+  const removeFromWishlist = (product) => {
+    dispatch(removeWishlist(product));
+  };
+
   const products = data.map((product) => (
-    <Product key={product.id} product={product} handleCart={handleCart} />
+    <Product key={product.id} product={product} handleCart={handleCart} removeFromWishlist={removeFromWishlist}/>
   ));
   return (
     <div>
@@ -31,12 +31,13 @@ const AllProduct = () => {
             className="cursor-pointer"
             onClick={() => navigate(-1)}
           />{" "}
-          All Products{" "}
+          Wishlist{" "}
         </h1>
       </div>
-      <div className="py-5">
-        <Container>
-          <div className="d-flex justify-content-between mb-5">
+
+      <Container>
+      {data.length > 0 ? (
+          <div className="my-5"><div className="d-flex justify-content-between mb-5">
             <div className="d-flex align-items-center">
               <Button
                 className="shadow-none border-0 bg-transparent text-dark"
@@ -47,17 +48,24 @@ const AllProduct = () => {
               /
               <Button
                 className="shadow-none border-0 bg-transparent text-dark"
-                onClick={() => navigate("/shop/")}
+                onClick={() => navigate("/wishlist/")}
               >
-                shop
+                wishlist
               </Button>
             </div>
-          </div>
-          <Row className="d-flex g-5">{products}</Row>
-        </Container>
-      </div>
-    </div>
+          </div><Row>{products}</Row></div>):
+          (
+            <div className="my-5">
+          <h3>Empty Wishlist</h3>
+          <Button
+            className="shadow-none border-0 bg-dark rounded-0 mt-2"
+            onClick={() => navigate("/shop")}
+          >
+            Go To Shop
+          </Button>
+        </div>) } </Container>
+  </div>
   );
 };
 
-export default AllProduct;
+export default Wishlist;

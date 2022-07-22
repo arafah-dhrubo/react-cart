@@ -20,9 +20,9 @@ import Search from "../search/Search";
 const Header = () => {
   const items = useSelector((state) => state.cart.cartItems);
   const compareItems = useSelector((state) => state.compare.compareItems);
+  const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
-
   return (
     <Navbar
       bg="dark"
@@ -160,17 +160,17 @@ const Header = () => {
 
             {/* wishlist  */}
             <Button
-              onClick={() => navigate("/compare")}
+              onClick={() => navigate("/wishlist")}
               variant="transparent position-relative text-start p-0 shadow-none "
             >
               <AiOutlineHeart className="text-white fs-4" />{" "}
-              {compareItems?.length ? (
+              {wishlistItems?.length ? (
                 <Badge
                   bg="dark"
                   className="position-absolute bg-white text-dark rounded rounded-circle p-1 end-0 top-0"
                   style={{ width: "20px", height: "20px" }}
                 >
-                  {}
+                  {wishlistItems.length}
                 </Badge>
               ) : (
                 ""
