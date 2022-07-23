@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
-import Review from './Review'
+import Reviews from './Reviews'
 
 const ProductTab = ({description}) => {
   return (
@@ -11,10 +11,10 @@ const ProductTab = ({description}) => {
     justify
   >
     <Tab className="py-5" eventKey="description" title="Description">
-      <p>{description}</p>
+      <p className='text-justify'>{description}</p>
     </Tab>
     <Tab className="py-5" eventKey="review" title="Review">
-    <Review/>
+    <Reviews/>
     </Tab>
   </Tabs>
   )

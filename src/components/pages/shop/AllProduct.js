@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { add } from "../../store/cartSlice";
 import { fetchProducts } from "../../store/productSlice";
 import Product from "../featured/Product";
@@ -10,7 +10,7 @@ import { BsArrowLeft } from "react-icons/bs";
 const AllProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.product);
+  const { data} = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(fetchProducts());

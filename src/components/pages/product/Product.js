@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import InnerImageZoom from 'react-inner-image-zoom';
+import InnerImageZoom from "react-inner-image-zoom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { TbArrowsCross } from "react-icons/tb";
 import StarRatings from "react-star-ratings";
 import { useDispatch, useSelector } from "react-redux";
-import { addCompare } from "../../store/compareSlice";
 import { add, increase, decrease } from "../../store/cartSlice";
+import { addCompare } from "../../store/compareSlice";
+import { addWishlist } from "../../store/wishlistSlice";
 
 import { useNavigate } from "react-router-dom";
 import ProductTab from "./ProductTab";
@@ -29,9 +30,23 @@ const Product = () => {
   const navigate = useNavigate();
 
   const data = useSelector((state) => state?.cart?.cartItems);
+  const recent = useSelector((state) => state?.recentView?.recentViewItems);
 
-  const item = data?.find((item) => item.id == id);
+  const item = data?.find((item) => item.id === id);
 
+  const recentView = recent.slice(-3).reverse().map((product) => (
+    <div className="d-flex align-items-center mb-2">
+      <div width="60px" height="60px" className="bg-light p-2" style={{borderRadius:"15px"}}>
+        <img src={product.image} alt={product?.title} width="50px" height="50px" style={{borderRadius:"15px"}}/>
+      </div>
+      <Button
+        onClick={() => navigate(`/product/${item?.id}`)}
+        className="shadow-none bg-transparent text-dark text-start border-0"
+      >
+        {product?.title}
+      </Button>
+    </div>
+  ))
   const productDetail = (
     <div className="py-5">
       <div className="d-flex justify-content-between mb-5">
@@ -70,7 +85,9 @@ const Product = () => {
         <Col md={6} xs={12}>
           <h1 className="fw-light fs-2 text-start">{product?.title}</h1>
           <h1 className="text-start">${product?.price}</h1>
-          <p className="text-start text-justify">{product?.description?.slice(0,150)}.</p>
+          <p className="text-start text-justify">
+            {product?.description?.slice(0, 150)}.
+          </p>
           {item ? (
             <div className="d-flex">
               <Button
@@ -87,7 +104,7 @@ const Product = () => {
               </p>
               <Button
                 className="rounded-0 bg-transparent border-dark shadow-none"
-                onClick={() =>  dispatch(decrease(product))}
+                onClick={() => dispatch(decrease(product))}
               >
                 <AiOutlineMinus className=" text-dark fs-5" />
               </Button>
@@ -95,7 +112,7 @@ const Product = () => {
           ) : (
             <div className="w-100 text-start">
               <Button
-                style={{backgroundColor:"black", borderRadius:"15px"}}
+                style={{ backgroundColor: "black", borderRadius: "15px" }}
                 className="px-4 py-3 bg-dark border-0 shadow-none"
                 onClick={() => dispatch(add(product))}
               >
@@ -104,7 +121,10 @@ const Product = () => {
             </div>
           )}
           <div className="d-flex align-items-center mt-3">
-            <Button className="bg-transparent shadow-none border-0 text-dark">
+            <Button
+              className="bg-transparent shadow-none border-0 text-dark"
+              onClick={() => dispatch(addWishlist(product))}
+            >
               <AiOutlineHeart /> Add to wishlist
             </Button>
             <p className="m-0 p-0">|</p>
@@ -133,7 +153,16 @@ const Product = () => {
           </div>
         </Col>
       </Row>
-      <ProductTab description={product?.description}/>
+      <Row>
+        <Col md={4}>
+          <h6 class="text-start">Recent viewed products</h6>
+          <hr width="80%" style={{borderColor:"black", height:"1px"}}/>
+          {recentView}
+        </Col>
+        <Col md={8}>
+          <ProductTab description={product?.description} />
+        </Col>
+      </Row>
     </div>
   );
 

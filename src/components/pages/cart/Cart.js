@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { BsXLg, BsArrowLeft } from "react-icons/bs";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { addrecentView } from "../../store/recentViewSlice";
 
 const Cart = () => {
   const data = useSelector((state) => state.cart.cartItems);
@@ -50,7 +51,10 @@ const Cart = () => {
       <Col md={4} className="text-start border-0 d-flex">
         <img src={item?.image} style={{ width: "50px" }} alt={item?.title} />
         <Button
-          onClick={() => navigate(`/product/${item?.id}`)}
+          onClick={() => {
+            navigate(`/product/${item?.id}`);
+            dispatch(addrecentView(item));
+          }}
           className="shadow-none bg-transparent text-dark text-start border-0"
         >
           {item?.title?.slice(0, 25)}...
